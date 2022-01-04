@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 11 Pro Max'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
@@ -17,8 +17,10 @@
     "@react-navigation/native-stack": "^6.2.5",
     "react": "17.0.2",
     "react-native": "0.66.4",
+    "react-native-country-picker-modal": "^2.0.0",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.1"
+    "react-native-screens": "^3.10.1",
+    "react-native-static-safe-area-insets": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
