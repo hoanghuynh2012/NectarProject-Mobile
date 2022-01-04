@@ -5,10 +5,10 @@ import styles from './style';
 import {Colors, Fonts} from '@styles';
 import {scaleSize, scaleFont} from '@utils/func';
 
-const index = () => {
+const index = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header goBack={true} />
+      <Header goBack={true} navigation={navigation} />
       <View style={styles.body}>
         <Text style={styles.textHeader}>Enter your 4-digit code</Text>
         <Text

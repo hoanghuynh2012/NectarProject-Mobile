@@ -5,11 +5,13 @@ import {scaleSize} from '@utils/func';
 import {image} from '@assets/image';
 
 const Header = props => {
-  const {goBack} = props;
+  const {goBack, navigation} = props;
   return (
     <View style={styles.container}>
       {goBack && (
-        <TouchableOpacity style={styles.buttonLeft}>
+        <TouchableOpacity
+          style={styles.buttonLeft}
+          onPress={() => navigation.goBack()}>
           <Image source={image.icon_goBack} style={styles.imageLeft} />
         </TouchableOpacity>
       )}
