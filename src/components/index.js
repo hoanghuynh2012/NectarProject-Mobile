@@ -1,3 +1,4 @@
 import Header from './Header';
-
-export {Header};
+import CustomText from './CustomText';
+import CustomTextInput from './CustomTextInput';
+export {Header, CustomText, CustomTextInput};

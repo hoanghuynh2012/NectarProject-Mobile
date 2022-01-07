@@ -8,4 +8,6 @@ export const image = {
   icon_gg: require('./icon_gg.png'),
   icon_fb: require('./icon_fb.png'),
   icon_goBack: require('./icon_goBack.png'),
+  location: require('./location.png'),
+  backgroundblur: require('./backgroundblur.png'),
 };

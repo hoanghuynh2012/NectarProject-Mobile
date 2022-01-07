@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   textButton: {
     color: Colors.White,
     fontFamily: Fonts.FONT_MEDIUM,
-    fontSize: scaleFont(18),
+    fontSize: scaleFont(16),
     textAlign: 'center',
   },
 });

@@ -8,12 +8,14 @@ import {
   TouchableOpacity,
   Keyboard,
   Animated,
+  ImageBackground,
 } from 'react-native';
 import styles from './style';
 import {image} from '@assets/image';
 import CountryPicker from 'react-native-country-picker-modal';
 import {Colors} from '@styles';
 import {scaleSize} from '@utils/func';
+import {CustomText} from '@components';
 
 const index = ({navigation}) => {
   const [countryCode, setCountryCode] = useState('VN');
@@ -24,6 +26,7 @@ const index = ({navigation}) => {
   const [withFilter, setWithFilter] = useState(true);
   const [withAlphaFilter, setWithAlphaFilter] = useState(false);
   const [withCallingCode, setWithCallingCode] = useState(false);
+  const [phone, setPhone] = useState();
   const translateY = useRef(new Animated.Value(-140)).current;
   const onSelect = country => {
     setCountryCode(country.cca2);
@@ -50,13 +53,15 @@ const index = ({navigation}) => {
     };
   }, [translateY]);
   return (
-    <View style={styles.container}>
+    <ImageBackground source={image.backgroundblur} style={styles.container}>
       <View style={styles.imageHeader}>
         <Image style={styles.image} source={image.image_singin} />
       </View>
       <Animated.View
         style={[styles.body, {transform: [{translateY: translateY}]}]}>
-        <Text style={styles.text}>Get your groceries with nectar</Text>
+        <CustomText style={styles.text}>
+          Get your groceries with nectar
+        </CustomText>
         <View style={styles.viewPhoneNumber}>
           <CountryPicker
             {...{
@@ -71,27 +76,33 @@ const index = ({navigation}) => {
             }}
           />
           {country !== null ? (
-            <Text style={styles.callingCode}>
+            <CustomText style={styles.callingCode}>
               {'+' + country.callingCode[0]}
-            </Text>
+            </CustomText>
           ) : (
-            <Text style={styles.callingCode}>{'+' + '84'}</Text>
+            <CustomText style={styles.callingCode}>{'+' + '84'}</CustomText>
           )}
           <TextInput
             style={styles.inputPhone}
+            value={phone}
+            onChangeText={val => setPhone(val)}
             keyboardType="numeric"
             onSubmitEditing={() => navigation.navigate('OtpScreen')}
           />
         </View>
         <TouchableOpacity
           style={styles.buttonLogin}
-          onPress={() => navigation.navigate('OtpScreen')}>
-          <Text style={styles.textGoogle}>Login</Text>
+          onPress={() => navigation.navigate('OtpScreen', {phone: phone})}>
+          <CustomText style={styles.textGoogle}>Login</CustomText>
         </TouchableOpacity>
-        <Text style={styles.textBottom}>Or connect with social media</Text>
+        <CustomText style={styles.textBottom}>
+          Or connect with social media
+        </CustomText>
         <TouchableOpacity style={styles.button}>
           <Image style={styles.imageLogo} source={image.icon_gg} />
-          <Text style={styles.textGoogle}> Continue with Google</Text>
+          <CustomText style={styles.textGoogle}>
+            Continue with Google
+          </CustomText>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
@@ -105,10 +116,12 @@ const index = ({navigation}) => {
             ]}
             source={image.icon_fb}
           />
-          <Text style={styles.textGoogle}> Continue with Facebook</Text>
+          <CustomText style={styles.textGoogle}>
+            Continue with Facebook
+          </CustomText>
         </TouchableOpacity>
       </Animated.View>
-    </View>
+    </ImageBackground>
   );
 };
 

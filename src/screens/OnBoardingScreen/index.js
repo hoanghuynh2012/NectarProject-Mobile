@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import styles from './style';
 import {image} from '@assets/image';
+import {CustomText} from '@components';
 const index = ({navigation}) => {
   return (
     <View styles={styles.container}>
@@ -16,14 +17,16 @@ const index = ({navigation}) => {
         resizeMode="cover"
         style={styles.image}>
         <Image style={styles.logo} source={image.logo_white} />
-        <Text style={styles.textWelcome}>Welcome {'\n'} to our store</Text>
-        <Text style={styles.textSmall}>
+        <CustomText style={styles.textWelcome}>
+          Welcome {'\n'} to our store
+        </CustomText>
+        <CustomText style={styles.textSmall}>
           Get your groceries in as fast as one hour
-        </Text>
+        </CustomText>
         <TouchableOpacity
           style={styles.buttonStart}
           onPress={() => navigation.replace('SingInScreen')}>
-          <Text style={styles.textButton}>Get Started</Text>
+          <CustomText style={styles.textButton}>Get Started</CustomText>
         </TouchableOpacity>
       </ImageBackground>
     </View>

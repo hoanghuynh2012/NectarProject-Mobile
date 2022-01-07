@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import {Colors, Insets} from '@styles';
-import {scaleSize} from '@utils/func';
+import {scaleSize, scaleFont} from '@utils/func';
 import {image} from '@assets/image';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = props => {
   const {goBack, navigation} = props;
@@ -12,7 +13,7 @@ const Header = props => {
         <TouchableOpacity
           style={styles.buttonLeft}
           onPress={() => navigation.goBack()}>
-          <Image source={image.icon_goBack} style={styles.imageLeft} />
+          <Icon name="ios-chevron-back-sharp" size={scaleFont(30)} />
         </TouchableOpacity>
       )}
     </View>
@@ -29,6 +30,6 @@ const styles = StyleSheet.create({
     height: scaleSize(50),
   },
   buttonLeft: {
-    marginLeft: scaleSize(24),
+    marginLeft: scaleSize(16),
   },
 });
